@@ -72,7 +72,7 @@ class _MyStringQuestionPageState extends State<StringQuestion> {
                                     Navigator.of(context).pushNamed(SuccessPage.tag);
                                   }
                                 } else {
-                                  Navigator.of(context).pushNamed(SuccessPage.tag);
+                                  _showMaterialDialog();
                                 }
                               }
                             },
@@ -85,6 +85,26 @@ class _MyStringQuestionPageState extends State<StringQuestion> {
             )
         )
     );
+  }
+
+  void _showMaterialDialog() {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: errorColor,
+            title: Text('PERDU'),
+            content: Text('La réponse était ' + listQuizzQuestions[user.progression].response.first.toString()),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(SuccessPage.tag);
+                  },
+                  child: Text('Fermer')),
+            ],
+          );
+        });
   }
 }
 

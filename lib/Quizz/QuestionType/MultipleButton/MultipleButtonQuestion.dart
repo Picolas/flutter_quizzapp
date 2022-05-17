@@ -56,7 +56,7 @@ class _MyMultipleButtonQuestionPageState extends State<MultipleButtonQuestion> {
                                     Navigator.of(context).pushNamed(SuccessPage.tag);
                                   }
                                 } else {
-                                  Navigator.of(context).pushNamed(SuccessPage.tag);
+                                  _showMaterialDialog();
                                 }
                               },
                             ),
@@ -67,6 +67,26 @@ class _MyMultipleButtonQuestionPageState extends State<MultipleButtonQuestion> {
             )
         )
     );
+  }
+
+  void _showMaterialDialog() {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: errorColor,
+            title: Text('PERDU'),
+            content: Text('La réponse était ' + listQuizzQuestions[user.progression].correctAnswer.first.toString()),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(SuccessPage.tag);
+                  },
+                  child: Text('Fermer')),
+            ],
+          );
+        });
   }
 }
 
