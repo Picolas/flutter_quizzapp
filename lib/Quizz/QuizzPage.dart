@@ -4,10 +4,8 @@ import 'package:quizz_app/Quizz/QuestionType/String/StringQuestion.dart';
 import 'package:quizz_app/Quizz/QuestionType/YesNo/YesNoQuestion.dart';
 import 'package:quizz_app/Service/PersonneService.dart';
 
-import '../Models/QuizQuestion.dart';
 import '../Service/QuestionService.dart';
 import '../Settings/Color.dart';
-import '../SuccessPage/SuccessPage.dart';
 
 class QuizzPage extends StatefulWidget {
   static const tag = "quizz_page";
